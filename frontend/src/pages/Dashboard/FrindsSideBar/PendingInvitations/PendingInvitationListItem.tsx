@@ -1,22 +1,22 @@
+import { useState } from 'react';
 import { Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { getActions } from '../../../../app/store/actions/fiendsActions';
 
 import Avatar from '../../../../app/components/Avatar';
 import InvitationDecisionButtons from './InvitationDecisionButtons'
 
 function PendingInvitationListItem(props:any) {
-    
-    const { id, username, email, acceptFiend = () => {}, reject = () => {}} = props
-
+    const { id, username, email, acceptFriendInvitation = () => {}, rejectFriendInvitation = () => {}} = props
     const [buttonDisabled, setButtonDiasabled] = useState(false)
 
-    const handleAccept = () =>{
-        acceptFiend({id})
+    const handleAccept = () => {
+        acceptFriendInvitation({id})
         setButtonDiasabled(true)
     }
-    const handleReject = () =>{
-        reject({id})
+    const handleReject = () => {
+        rejectFriendInvitation({id})
         setButtonDiasabled(true)
     }
     return (
@@ -59,4 +59,7 @@ function PendingInvitationListItem(props:any) {
     );
 }
 
-export default PendingInvitationListItem;
+const mapActionsToProps = (dispatch:any) => ({
+    ...getActions(dispatch)
+})
+export default  connect( null, mapActionsToProps )( PendingInvitationListItem );

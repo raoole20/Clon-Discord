@@ -19,6 +19,7 @@ const updateFriendsPendingInvitations = async ( userId ) => {
         })
     }catch(err){
         console.log(`[ERROR] error in update friends handler`)
+        console.log(err)
     }
 }
 

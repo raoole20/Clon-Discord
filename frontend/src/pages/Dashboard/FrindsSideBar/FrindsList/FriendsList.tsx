@@ -1,4 +1,5 @@
 import { styled } from "@mui/system";
+import { connect } from "react-redux";
 import FirendsListItem from "./FirendsListItem";
 
 const MainContainer = styled('div')({
@@ -6,33 +7,11 @@ const MainContainer = styled('div')({
   width: "100%"
 })
 
-const DUMMY_FRIENDS = [
-  { 
-    id: 1,
-    username: "Mark",
-    isOnline: true
-  },
-  { 
-    id: 2,
-    username: "ana",
-    isOnline: false
-  },
-  { 
-    id: 3,
-    username: "maria",
-    isOnline: true
-  },
-  { 
-    id: 4,
-    username: "Mrk3",
-    isOnline: true
-  },
-]
-function FriendsList() {
+function FriendsList(props:any) {
     return (
         <MainContainer>
             {
-              DUMMY_FRIENDS.map( f => (
+              props.pendingFriendsInvitations.map( ( f:any ) => (
                 <FirendsListItem 
                   username={f.username}
                   id={f.id}
@@ -45,4 +24,11 @@ function FriendsList() {
     );
 }
 
-export default FriendsList;
+const mapStoreStateToProps = (props:any)=> {
+  return {
+    ...
+    props.friend
+  }
+}
+
+export default connect(mapStoreStateToProps)(FriendsList);

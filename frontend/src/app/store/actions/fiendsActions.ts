@@ -7,11 +7,11 @@ export const friendsActions = {
     SET_ONLINE_USERS: "FRINEDS.SET_ONLINE_USERS"
 }
 
-export const getActions = (dispatch:any) => {
-    return {
-        sendFriendInvitation: (data:any, closeDialogHandler:any) => dispatch(sendFriendInvitation(data, closeDialogHandler))
-    }
-}
+export const getActions = (dispatch:any) => ({
+    sendFriendInvitation: (data:any, closeDialogHandler:any) => dispatch(sendFriendInvitation(data, closeDialogHandler)),
+    acceptFriendInvitation: (data:any, closeDialogHandler:any) => dispatch(acceptFriendInvitation(data)),
+    rejectFriendInvitation: (data:any, closeDialogHandler:any) => dispatch(rejectFriendInvitation(data))
+})
 
 const sendFriendInvitation = (data:any, closeDialogHandler:any) => {
     return async (dispatch:any) => {
@@ -22,6 +22,30 @@ const sendFriendInvitation = (data:any, closeDialogHandler:any) => {
         }else{
             dispatch(openAlertMessage("Invitation has been seend!"))
             closeDialogHandler()
+        }
+    }
+}
+
+const acceptFriendInvitation = ( data:any) => {
+    return async (dispatch:any) => {
+        const response:any = await api.acceptFriendInvitation(data)
+
+        if( response.error ){
+            dispatch(openAlertMessage(response.exception?.response?.data))
+        }else{
+            dispatch(openAlertMessage("Invitation accepted!"))
+        }
+    }
+}
+
+const rejectFriendInvitation = ( data:any) => {
+    return async (dispatch:any) => {
+        const response:any = await api.rejectFriendInvitation(data)
+
+        if( response.error ){
+            dispatch(openAlertMessage(response.exception?.response?.data))
+        }else{
+            dispatch(openAlertMessage("Invitation reject!"))
         }
     }
 }

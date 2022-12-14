@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     type: String,
   },
   fiends: [{
-    type: mongoose.Schema.Types.ObjectId, ref: "User"
+    type: mongoose.Schema.Types.ObjectId, ref: "user"
   }]
 })
 

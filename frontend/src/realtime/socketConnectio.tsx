@@ -16,8 +16,9 @@ export const connectWithSocketServer = (userDetails:any) => {
         console.log(socket.id)
     })
 
-    socket.on("firneds-invitations", (data) => {
-        const { prendingInvitations } = data
-        store.dispatch(setPendingInvitations(prendingInvitations))
+    socket.on("friends-invitations", (data) => {
+        const { pendingInvitations } = data
+       
+        store.dispatch(setPendingInvitations(pendingInvitations))
     })
 }

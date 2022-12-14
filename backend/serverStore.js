@@ -15,7 +15,7 @@ exports.removeConnectedUser = (socketId) => {
 exports.getOnline = (userId) => {
     const active = []
 
-    connectedUsers.forEach( function (key, value) {
+    connectedUsers.forEach( function (value, key) {
         if( value.userId === userId){
             active.push(key)
         }
