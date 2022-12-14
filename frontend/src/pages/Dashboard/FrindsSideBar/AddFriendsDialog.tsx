@@ -3,16 +3,24 @@ import { validateEmail } from '../../../app/utils/validateors'
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Typography } from '@mui/material';
 import InputWithLabel from '../../../app/components/InputWithLabel';
 import CustomPrimaryBTN from '../../../app/components/CustomPrimaryBTN';
+import { connect } from 'react-redux'
+import { getActions } from '../../../app/store/actions/fiendsActions';
 
 function AddFriendsDialog(props:any) {
-    const { isDialogOpen, closeDialogHandler, sendFriendInvitation = () => {} } = props
+
+    const { 
+        isDialogOpen, 
+        closeDialogHandler, 
+        sendFriendInvitation = () => {} } = props
    
 
     const [ email, setEmail ] = useState('')
     const [ isFormValid, setInformValid] = useState(false)
 
     const handleSendInvitation = ()=> {
-        // send frined requet to server
+        sendFriendInvitation({
+            email,
+        })
     }
 
     const handleCLoseDialog = () => {
@@ -64,4 +72,9 @@ function AddFriendsDialog(props:any) {
     );
 }
 
-export default AddFriendsDialog;
+const mapActionsTopProps = (dispatch:any) => {
+    return {
+        ...getActions(dispatch)
+    }
+}
+export default connect(null, mapActionsTopProps)(AddFriendsDialog);
