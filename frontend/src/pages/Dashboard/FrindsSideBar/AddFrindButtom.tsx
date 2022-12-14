@@ -34,7 +34,7 @@ function AddFrindButtom() {
 
             <AddFriendsDialog 
                 isDialogOpen={isDialogOpen}
-                closeDialogHandler={handleOpneAddFrindDialog}
+                closeDialogHandler={handleCloseAddFriendDialog}
                 handleCloseAddFriendDialog={handleCloseAddFriendDialog}
             />
         </>
