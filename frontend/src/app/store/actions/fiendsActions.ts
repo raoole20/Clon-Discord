@@ -20,8 +20,13 @@ const sendFriendInvitation = (data:any, closeDialogHandler:any) => {
         if( response.error ){
             dispatch(openAlertMessage(response.exception?.response?.data))
         }else{
-            dispatch(openAlertMessage("INvitation has been sent!"))
+            dispatch(openAlertMessage("Invitation has been seend!"))
             closeDialogHandler()
         }
     }
 }
+
+export const setPendingInvitations = ( pendingFriendsInvitations:any) => ({
+    type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
+    pendingFriendsInvitations
+})

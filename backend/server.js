@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 
 const authRoutes = require('./routers/auth')
 const indexRoutes = require('./routers/index')
-
+const friendRoute = require('./routers/friend')
 // socket
 const { registerSokectServer } = require('./socketServer')
 
@@ -20,6 +20,7 @@ app.use( cors() )
 // routes
 app.use('/index', indexRoutes)
 app.use('/api/auth', authRoutes)
+app.use('/api/friend-invitation', friendRoute)
 
 const server = http.createServer(app)
 //reegistrando sockect

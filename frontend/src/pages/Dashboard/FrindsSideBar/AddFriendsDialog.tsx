@@ -19,7 +19,7 @@ function AddFriendsDialog(props:any) {
 
     const handleSendInvitation = ()=> {
         sendFriendInvitation({
-            email,
+            targetMailAddress: email,
         })
     }
 
