@@ -1,5 +1,7 @@
 const { addNewConnectedUser } = require("../serverStore")
 const  updateInvitation =  require("./updates/friends")
+const  updateFriends  =  require("./updates/updateFriendsLIst")
+
 exports.newConnectionHandler = async ( socket, io ) => {
     const userDetails = socket.user
 
@@ -9,4 +11,5 @@ exports.newConnectionHandler = async ( socket, io ) => {
     })
 
     updateInvitation(userDetails.userId)
+    updateFriends(userDetails.userId)
 }

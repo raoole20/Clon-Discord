@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Tooltip, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { connect } from 'react-redux'
-import { getActions } from '../../../../app/store/actions/fiendsActions';
+import { getActions } from '../../../../app/store/actions/friendsActions';
 
 import Avatar from '../../../../app/components/Avatar';
 import InvitationDecisionButtons from './InvitationDecisionButtons'

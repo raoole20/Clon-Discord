@@ -11,7 +11,7 @@ function FriendsList(props:any) {
     return (
         <MainContainer>
             {
-              props.pendingFriendsInvitations.map( ( f:any ) => (
+              props.friends.map( ( f:any ) => (
                 <FirendsListItem 
                   username={f.username}
                   id={f.id}

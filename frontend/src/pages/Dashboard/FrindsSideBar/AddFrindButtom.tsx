@@ -28,7 +28,7 @@ function AddFrindButtom() {
         <>
             <CustomPrimaryBTN
                 additionalStyles={additionalStyles}
-                label="Add Frind"
+                label="Add Friend"
                 onClick={handleOpneAddFrindDialog}
             />
 

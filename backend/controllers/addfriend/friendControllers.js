@@ -1,5 +1,11 @@
-const postInvite = require('./postInvite')
+const { 
+    postInvite,  
+    postAcept,
+    postReject 
+} = require('./postInvite')
 
 exports.controllers = {
-    postInvite
+    postInvite,
+    postAcept,
+    postReject
 }

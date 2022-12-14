@@ -4,7 +4,7 @@ import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, T
 import InputWithLabel from '../../../app/components/InputWithLabel';
 import CustomPrimaryBTN from '../../../app/components/CustomPrimaryBTN';
 import { connect } from 'react-redux'
-import { getActions } from '../../../app/store/actions/fiendsActions';
+import { getActions } from '../../../app/store/actions/friendsActions';
 
 function AddFriendsDialog(props:any) {
 

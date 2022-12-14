@@ -2,8 +2,8 @@ import * as api from '../../../api'
 import { openAlertMessage } from "./alertAction"
 
 export const friendsActions = {
-    SET_FRIENDS: 'FRINDS.SET_FRIENDS',
-    SET_PENDING_FRIENDS_INVITATIONS: "FRIENDS.SET_PENDING_FIENDS_INVITATIONS",
+    SET_FRIENDS: 'FRIENDS.SET_FRIENDS',
+    SET_PENDING_FRIENDS_INVITATIONS: "FRIENDS.SET_PENDING_friends_INVITATIONS",
     SET_ONLINE_USERS: "FRINEDS.SET_ONLINE_USERS"
 }
 
@@ -53,4 +53,9 @@ const rejectFriendInvitation = ( data:any) => {
 export const setPendingInvitations = ( pendingFriendsInvitations:any) => ({
     type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
     pendingFriendsInvitations
+})
+
+export const setFriends = ( friends: any ) => ({
+    type: friendsActions.SET_FRIENDS,
+    friends,
 })
