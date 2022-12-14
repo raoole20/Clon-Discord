@@ -22,10 +22,11 @@ app.use('/index', indexRoutes)
 app.use('/api/auth', authRoutes)
 
 const server = http.createServer(app)
-registerSokectServer()
+//reegistrando sockect
+registerSokectServer(server)
 
 mongoose.connect(process.env.MONGO_URL).then( ()=>{
-    console.log('Connection to the database is successfully')
+    console.log('[SERVER] successfully connected to the database')
     server.listen(PORT, ()=>{
         console.log("[SERVER] http://localhost:" + PORT )
     } )  

@@ -2,11 +2,11 @@ import io from 'socket.io-client'
 
 export const connectWithSocketServer = (userDetails:any) => {
    
-    const { jwtToken } = userDetails
-   
+    const { token } = userDetails
+
     let socket = io('http://localhost:8080/',{
         auth: {
-            token: jwtToken,
+            token: token,
         }
     })
 

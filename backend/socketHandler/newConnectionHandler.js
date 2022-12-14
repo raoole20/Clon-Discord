@@ -5,6 +5,6 @@ exports.newConnectionHandler = async ( socket, io ) => {
 
     addNewConnectedUser({
         socketId: socket.id,
-        userId: userDetails.Id
+        userId: userDetails.userId
     })
 }

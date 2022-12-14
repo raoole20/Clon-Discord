@@ -1,6 +1,11 @@
-const { authSocket } = require('./middleware/authSocket')
+const { verifyTokenSocket } = require('./middleware/authSocket')
 const { newConnectionHandler } = require('./socketHandler/newConnectionHandler')
 
+
+/**
+ * funcion para registrar una nueva conexion socket
+ * @param {Express} server instancia de nuestro server creado con express
+ */
 exports.registerSokectServer = server => {
 
     const io = require('socket.io')(server, {
@@ -10,17 +15,14 @@ exports.registerSokectServer = server => {
         }
     })
 
+
     io.use( (socket, next) => {
-        authSocket( socket, next )
+        verifyTokenSocket( socket, next )
     })
 
-    io.on('connection', client => {
-        console.log('conexion ready')
-        client.on('event', data => { /* … */ });
-        client.on('disconnect', () => { /* … */ });
-
-        // new connection handler
+    // iniciar conxion 
+    io.on('connection', socket => {
+        console.log("[LOG] User connected to socket - id: " + socket.id)
         newConnectionHandler(socket, io)
     })
-    
 }

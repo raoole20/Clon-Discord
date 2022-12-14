@@ -19,7 +19,7 @@ const Wrapper = styled('div')({
 function Dashboard(props:any) {
 
     useEffect(()=>{
-        const userDetails = localStorage.getItem('user')
+        const userDetails:any = localStorage.getItem('user')
 
         if( !userDetails ) {
             logout()
@@ -29,7 +29,7 @@ function Dashboard(props:any) {
         }
     }, [])
 
-    return (
+    return ( 
         <Wrapper>
             <SideBar />
             <FrindsSideBar />

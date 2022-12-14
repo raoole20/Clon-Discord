@@ -7,10 +7,9 @@ exports.verifyTokenSocket = (socket, next) => {
     try {
         const decoded = jwt.verify(token, config.TOKEN_KEY)
         socket.user = decoded
+        return next()
     } catch (error) {
-        const socketError = new Error('NOT AUTHORIZED')
+        const socketError = new Error('[ERROR] USER NOT AUTH')
         return next(socketError)
     }
-
-    next()
-}
+} 
