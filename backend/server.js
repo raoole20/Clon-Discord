@@ -11,7 +11,7 @@ const indexRoutes = require('./routers/index')
 // socket
 const { registerSokectServer } = require('./socketServer')
 
-const PORT = process.env.PORT || process.env.API_PORT
+const PORT = process.env.PORT || 8080
 const app = express()
 
 app.use( express.json() )
@@ -27,7 +27,7 @@ registerSokectServer()
 mongoose.connect(process.env.MONGO_URL).then( ()=>{
     console.log('Connection to the database is successfully')
     server.listen(PORT, ()=>{
-        console.log("the server is listening on " + PORT )
+        console.log("[SERVER] http://localhost:" + PORT )
     } )  
 }).catch( err => {
     console.log('databases connection falied. Server Not started')

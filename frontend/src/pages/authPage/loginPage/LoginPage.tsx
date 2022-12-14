@@ -25,7 +25,6 @@ function LoginPage(props:any) {
     }, [email, password, setIsFormValid])
 
     const handleLogin = ()=>{
-        console.log('login...')
 
         const userDetail = {
             email,
