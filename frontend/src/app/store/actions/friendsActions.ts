@@ -50,6 +50,13 @@ const rejectFriendInvitation = ( data:any) => {
     }
 }
 
+export const setOnlineUsers = ( onlineUsers:any ) => {
+    return {
+        type: friendsActions.SET_ONLINE_USERS,
+        onlineUsers
+    }
+}
+
 export const setPendingInvitations = ( pendingFriendsInvitations:any) => ({
     type: friendsActions.SET_PENDING_FRIENDS_INVITATIONS,
     pendingFriendsInvitations

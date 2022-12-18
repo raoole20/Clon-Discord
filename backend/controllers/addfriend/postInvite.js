@@ -78,7 +78,8 @@ const postAcept = async (req, res) => {
         await receiverUser.save()
 
         await FriendInvitation.findOneAndDelete(id).then( response => {
-            friendsUpdate(receiverId);
+            friendsUpdate(senderId.toString());
+            friendsUpdate(receiverId.toJSON())
         });
 
         // update list of friend 

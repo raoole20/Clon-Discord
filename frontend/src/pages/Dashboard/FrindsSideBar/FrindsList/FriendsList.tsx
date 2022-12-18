@@ -7,11 +7,19 @@ const MainContainer = styled('div')({
   width: "100%"
 })
 
+const ckeckOnlineUsers = ( friends =[], onlineUsers = [] )=>{
+  friends.forEach( f => {
+    const isUserOnline = onlineUsers.find( user => user?.userId === f?.id)
+    f.isOnline = isUserOnline ? true : false
+  })
+  return friends 
+}
+
 function FriendsList(props:any) {
     return (
         <MainContainer>
             {
-              props.friends.map( ( f:any ) => (
+              ckeckOnlineUsers(props.friends, props.onlineUsers).map( ( f:any ) => (
                 <FirendsListItem 
                   username={f.username}
                   id={f.id}

@@ -1,4 +1,5 @@
 import { styled } from '@mui/system';
+import ChosenLabelOption from './ChosenLabelOption';
 import DropDown from './DropDown'
 
 const MainContainer = styled('div')({
@@ -18,6 +19,7 @@ const MainContainer = styled('div')({
 function AppBar(props:any) {
     return (
         <MainContainer>
+            <ChosenLabelOption />
             <DropDown />
         </MainContainer>
     );

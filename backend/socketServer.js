@@ -22,14 +22,25 @@ exports.registerSokectServer = (server) => {
     verifyTokenSocket(socket, next);
   });
 
+
+  const emitOnlineUsers = () => {
+    const onlineUsers = serverStore.getOnlineUsers()
+    io.emit('online-users', { onlineUsers })
+  }
+
   // iniciar conxion
   io.on("connection", (socket) => {
     console.log("[LOG] Connected to socket - id: " + socket.id);
     newConnectionHandler(socket, io);
+    emitOnlineUsers()
 
     socket.on("disconnect", () => {
       console.log("[LOG] Disconnect to socket - id: " + socket.id);
       disconnectHandler(socket);
     });
   });
+
+  setInterval( () => {
+    emitOnlineUsers()
+  }, [8000])
 };

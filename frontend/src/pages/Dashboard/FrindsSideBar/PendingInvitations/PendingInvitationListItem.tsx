@@ -8,7 +8,9 @@ import Avatar from '../../../../app/components/Avatar';
 import InvitationDecisionButtons from './InvitationDecisionButtons'
 
 function PendingInvitationListItem(props:any) {
-    const { id, username, email, acceptFriendInvitation = () => {}, rejectFriendInvitation = () => {}} = props
+    const { id, username, email, acceptFriendInvitation = () => {
+        console.log('este no ejecuta nada')
+    }, rejectFriendInvitation = () => {}} = props
     const [buttonDisabled, setButtonDiasabled] = useState(false)
 
     const handleAccept = () => {

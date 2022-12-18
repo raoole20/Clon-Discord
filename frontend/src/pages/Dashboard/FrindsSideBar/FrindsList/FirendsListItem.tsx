@@ -1,9 +1,16 @@
 import {  Button, Typography } from '@mui/material';
+import { connect } from 'react-redux';
 import Avatar from '../../../../app/components/Avatar';
+import { chatTypes, getActions, setChosenChatDetails } from '../../../../app/store/actions/chatActions';
 import OnlineIndicator from './OnlineIndicator';
 
 
-function FirendsListItem({ id = 0, username = '', isOnline = false}) {
+function FirendsListItem({ id = 0, username = '', isOnline = false, setChosenChatDetails }) {
+
+    const handleChooseActioveConversation = () => {
+        setChosenChatDetails({ id: id, name: username }, chatTypes.DIRECT)
+    }
+
     return (
         <Button
             style={{
@@ -17,6 +24,7 @@ function FirendsListItem({ id = 0, username = '', isOnline = false}) {
                 color: 'black',
                 position: 'relative'
             }}
+            onClick={handleChooseActioveConversation}
         >
             <Avatar 
                 username={username}
@@ -38,5 +46,9 @@ function FirendsListItem({ id = 0, username = '', isOnline = false}) {
         </Button>
     );
 }
-
-export default FirendsListItem;
+const mapActionsToProps = (dispatch) => {
+    return {
+        ...getActions(dispatch)
+    }
+}
+export default connect(null, mapActionsToProps)(FirendsListItem);
